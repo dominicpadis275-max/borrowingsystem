@@ -1,1 +1,204 @@
 
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --text: #1f2430;
+  --muted: #6b7280;
+  --border: #e3e6ec;
+  --primary: #2f5fd0;
+  --primary-dark: #244aa6;
+  --danger: #c0392b;
+  --ok-bg: #e4f5ea;   --ok-text: #1d6b3a;
+  --bad-bg: #fbe3e0;  --bad-text: #9b2318;
+  --radius: 10px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171d;
+    --surface: #1d222b;
+    --text: #e8eaf0;
+    --muted: #9aa3b2;
+    --border: #2d3441;
+    --primary: #6b92f5;
+    --primary-dark: #8aa8f8;
+    --danger: #ef7466;
+    --ok-bg: #1b3a29;   --ok-text: #7fd6a0;
+    --bad-bg: #482321;  --bad-text: #f19a90;
+  }
+}
+
+/* ---------- 2. Base ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+h1, h2, p { margin: 0; }
+a { color: var(--primary); }
+
+/* ---------- 3. Header and navigation ---------- */
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.site-header .inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  flex-wrap: wrap;            /* on a phone the menu drops under the name */
+}
+.brand { font-size: 18px; font-weight: 700; text-decoration: none; color: var(--text); }
+.brand small { display: block; font-size: 12px; font-weight: 400; color: var(--muted); }
+
+.nav { display: flex; flex-wrap: wrap; gap: 4px; }
+.nav a {
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+.nav a:hover { color: var(--text); background: var(--bg); }
+.nav a.active { color: var(--primary); background: color-mix(in srgb, var(--primary) 12%, transparent); }
+
+/* ---------- 4. Page layout ---------- */
+main { max-width: 1000px; margin: 0 auto; padding: 20px 16px 40px; }
+
+.page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.page-head h1 { font-size: 22px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+/* ---------- 5. Buttons ---------- */
+.btn, button {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+.btn:hover, button:hover { background: var(--primary-dark); }
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-secondary:hover { background: var(--bg); }
+
+.btn-small { min-height: 34px; padding: 5px 12px; font-size: 13px; }
+
+.btn-danger {
+  background: var(--surface);
+  color: var(--danger);
+  border-color: var(--border);
+}
+.btn-danger:hover { background: var(--bad-bg); }
+
+/* ---------- 6. Search box ---------- */
+.search { display: flex; gap: 8px; margin-bottom: 16px; }
+.search input { flex: 1; min-width: 0; }   /* min-width:0 lets it shrink on a phone */
+
+/* ---------- 7. Form controls ---------- */
+input, select, textarea {
+  font: inherit;
+  font-size: 16px;            /* 16px stops phones zooming in on focus */
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+}
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid color-mix(in srgb, var(--primary) 45%, transparent);
+  border-color: var(--primary);
+}
+
+.form { max-width: 520px; }
+.form label { display: block; margin: 16px 0 4px; font-weight: 600; font-size: 14px; }
+.form label:first-child { margin-top: 0; }
+.form .hint { color: var(--muted); font-size: 13px; margin-top: 4px; }
+.form .actions { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+
+.error { color: var(--bad-text); background: var(--bad-bg); border-radius: 8px; padding: 8px 12px; font-size: 14px; margin-top: 8px; }
+
+/* ---------- 8. List table ---------- */
+.table-wrap { overflow-x: auto; }           /* safety net: only the table may scroll sideways */
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; padding: 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+td.num, th.num { text-align: right; }
+td.actions { white-space: nowrap; text-align: right; }
+td.actions .btn, td.actions button { margin-left: 6px; }
+
+.badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: var(--ok-bg); color: var(--ok-text); }
+.badge.none { background: var(--bad-bg); color: var(--bad-text); }
+
+.list-note { color: var(--muted); font-size: 13px; margin-top: 12px; }
+
+/* ---------- 9. Phone layout (390px and up to 640px) ---------- */
+@media (max-width: 640px) {
+  .card { padding: 14px; }
+
+  /* each table row becomes a card, so nothing is wider than the screen */
+  thead { display: none; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  tr {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 8px 12px;
+    margin-bottom: 12px;
+  }
+  td {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--border);
+    text-align: right;
+  }
+  td::before {                       /* the column name, taken from data-label in the HTML */
+    content: attr(data-label);
+    font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em;
+    color: var(--muted); text-align: left;
+  }
+  td:last-child { border-bottom: none; }
+  td.actions { display: flex; gap: 8px; padding-top: 10px; }
+  td.actions::before { content: none; }
+  td.actions .btn, td.actions button { flex: 1; margin-left: 0; }
+
+  .page-head .btn { width: 100%; }
+}
