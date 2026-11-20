@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add equipment | School Equipment Borrowing System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+  <header class="site-header">
+    <div class="inner">
+      <a href="list.html" class="brand">Equipment Borrowing <small>School equipment lending system</small></a>
+      <nav class="nav" aria-label="Main">
+        <a href="#">Dashboard</a>
+        <a href="#">New borrowing</a>
+        <a href="#">Transactions</a>
+        <a href="list.html" class="active" aria-current="page">Equipment</a>
+        <a href="#">Borrowers</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-head">
+      <h1>Add equipment</h1>
+    </div>
+
+    <div class="card">
+      <!-- name="..." matches the column in the equipment table -->
+      <form action="#" method="post" class="form">
+
+        <label for="equipment_name">Equipment name *</label>
+        <input id="equipment_name" name="equipment_name" type="text" maxlength="100" required>
+
+        <label for="category_id">Category *</label>
+        <select id="category_id" name="category_id" required>
+          <option value="">Choose one</option>
+          <option value="1">Audio-Visual</option>   <!-- rows from categories -->
+          <option value="2">Laboratory</option>
+          <option value="3">Sports</option>
+          <option value="4">Computing</option>
+        </select>
+        <p class="error">Please choose a category.</p>   <!-- sample error -->
+
+        <label for="quantity">Total quantity *</label>
+        <input id="quantity" name="quantity" type="number" min="0" step="1" value="1" required>
+        <p class="hint">How many the school owns. Available quantity is set automatically to this number.</p>
+
+        <div class="actions">
+          <button type="submit">Save</button>
+          <a href="list.html" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+</body>
+</html>
