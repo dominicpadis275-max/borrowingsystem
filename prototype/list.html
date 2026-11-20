@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equipment list | School Equipment Borrowing System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+  <header class="site-header">
+    <div class="inner">
+      <a href="list.html" class="brand">Equipment Borrowing <small>School equipment lending system</small></a>
+      <nav class="nav" aria-label="Main">
+        <a href="#">Dashboard</a>
+        <a href="#">New borrowing</a>
+        <a href="#">Transactions</a>
+        <a href="list.html" class="active" aria-current="page">Equipment</a>
+        <a href="#">Borrowers</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-head">
+      <h1>Equipment</h1>
+      <a href="form.html" class="btn">+ Add equipment</a>
+    </div>
+
+    <div class="card">
+      <form class="search" action="#" method="get" role="search">
+        <input type="search" name="q" placeholder="Search equipment name" aria-label="Search equipment name">
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th class="num">Total</th>
+              <th class="num">Available</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- rows copied from the seed data: equipment + categories -->
+            <tr>
+              <td data-label="Name">Projector</td>
+              <td data-label="Category">Audio-Visual</td>
+              <td data-label="Total" class="num">5</td>
+              <td data-label="Available" class="num">5</td>
+              <td class="actions">
+                <a href="form.html" class="btn btn-secondary btn-small">Edit</a>
+                <button type="button" class="btn-danger btn-small">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Name">Microphone</td>
+              <td data-label="Category">Audio-Visual</td>
+              <td data-label="Total" class="num">8</td>
+              <td data-label="Available" class="num">8</td>
+              <td class="actions">
+                <a href="form.html" class="btn btn-secondary btn-small">Edit</a>
+                <button type="button" class="btn-danger btn-small">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Name">Microscope</td>
+              <td data-label="Category">Laboratory</td>
+              <td data-label="Total" class="num">10</td>
+              <td data-label="Available" class="num">10</td>
+              <td class="actions">
+                <a href="form.html" class="btn btn-secondary btn-small">Edit</a>
+                <button type="button" class="btn-danger btn-small">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Name">Beaker Set</td>
+              <td data-label="Category">Laboratory</td>
+              <td data-label="Total" class="num">15</td>
+              <td data-label="Available" class="num">15</td>
+              <td class="actions">
+                <a href="form.html" class="btn btn-secondary btn-small">Edit</a>
+                <button type="button" class="btn-danger btn-small">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Name">Basketball</td>
+              <td data-label="Category">Sports</td>
+              <td data-label="Total" class="num">12</td>
+              <td data-label="Available" class="num">12</td>
+              <td class="actions">
+                <a href="form.html" class="btn btn-secondary btn-small">Edit</a>
+                <button type="button" class="btn-danger btn-small">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Name">Laptop</td>
+              <td data-label="Category">Computing</td>
+              <td data-label="Total" class="num">6</td>
+              <td data-label="Available" class="num">6</td>
+              <td class="actions">
+                <a href="form.html" class="btn btn-secondary btn-small">Edit</a>
+                <button type="button" class="btn-danger btn-small">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="list-note">Showing 6 of 6 items. Edit and Delete do not work yet; PHP comes in Week 15.</p>
+    </div>
+  </main>
+
+</body>
+</html>
